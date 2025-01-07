@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react'; //Bài tập 02.2
 import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
 import {StatusBar } from 'react-native';
 const notifications = [
@@ -129,6 +129,42 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#000',
+  },
+});
+
+export default App;*/ 
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.square}>
+        <Text style={styles.text}>Hello, world</Text>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, // Kích thước container chiếm toàn bộ màn hình
+    justifyContent: 'center', // Canh giữa hình vuông theo chiều dọc
+    alignItems: 'center', // Canh giữa hình vuông theo chiều ngang
+    backgroundColor: '#f5f5f5', // Màu nền sáng cho toàn bộ màn hình
+  },
+  square: {
+    width: 350, // Chiều rộng hình vuông
+    height: 350, // Chiều cao hình vuông (bằng chiều rộng để thành hình vuông)
+    backgroundColor: '#4CAF50', // Màu nền xanh lá cây cho hình vuông
+    justifyContent: 'center', // Canh giữa chữ bên trong theo chiều dọc
+    alignItems: 'center', // Canh giữa chữ bên trong theo chiều ngang
+    borderRadius: 8, // Bo góc hình vuông (tùy chọn, không bắt buộc)
+  },
+  text: {
+    color: '#fff', // Màu chữ trắng
+    fontSize: 16, // Kích thước chữ
+    fontWeight: 'bold', // Định dạng chữ in đậm
   },
 });
 
