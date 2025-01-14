@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;*/ 
+export default App;
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
@@ -167,5 +167,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold', // Định dạng chữ in đậm
   },
 });
+
+export default App;*/
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import FlatListScreen from './screens/Flatlist';
+import SectionListScreen from './screens/Sectionlist';
+
+const Stack = createStackNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="FlatList">
+        <Stack.Screen name="FlatList" component={FlatListScreen} options={{ title: 'Danh sách sản phẩm' }} />
+        <Stack.Screen name="SectionList" component={SectionListScreen} options={{ title: 'Nhóm sản phẩm' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
