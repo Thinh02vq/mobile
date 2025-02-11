@@ -2,9 +2,9 @@
 ### MSV: 20810310370
 ## Ket qua:
 bài tập cuối Slide buổi 05:
-[Bài tập slide buổi 05.1](z6307223369750_c9449fafada673a6a9d95abf659585fd.jpg)
-[Bài tập slide buổi 05.2](z6307223371443_5823c6a3be3d27c7bd2a3dfdb39f7e06.jpg)
-[Bài tập slide buổi 05.3](z6307223383876_01b130bbfa56a4ce6bfe3f7592aed2cc.jpg)
+![Bài tập slide buổi 05.1](z6307223369750_c9449fafada673a6a9d95abf659585fd.jpg)
+![Bài tập slide buổi 05.2](z6307223371443_5823c6a3be3d27c7bd2a3dfdb39f7e06.jpg)
+![Bài tập slide buổi 05.3](z6307223383876_01b130bbfa56a4ce6bfe3f7592aed2cc.jpg)
 So sánh giữa FlatList và SectionList trong React Native:
 1. Mục đích sử dụng:
 FlatList:
