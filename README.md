@@ -1,6 +1,10 @@
 # Nguyễn Trọng Thịnh
 ### MSV: 20810310370
-## Ket qua
+## Ket qua:
+bài tập cuối Slide buổi 05:
+[Bài tập slide buổi 05.1](z6307223369750_c9449fafada673a6a9d95abf659585fd.jpg)
+[Bài tập slide buổi 05.2](z6307223371443_5823c6a3be3d27c7bd2a3dfdb39f7e06.jpg)
+[Bài tập slide buổi 05.3](z6307223383876_01b130bbfa56a4ce6bfe3f7592aed2cc.jpg)
 So sánh giữa FlatList và SectionList trong React Native:
 1. Mục đích sử dụng:
 FlatList:
@@ -60,5 +64,8 @@ Cần thêm logic để xử lý các nhóm và hiển thị headers, nhưng cun
 Khi nào nên dùng:
 FlatList: Dùng khi bạn chỉ cần hiển thị danh sách phẳng, không có tiêu đề hoặc nhóm.
 SectionList: Dùng khi bạn cần phân loại dữ liệu thành các nhóm có tiêu đề rõ ràng, như mục lục, lịch trình hoặc danh bạ.
+
+
+
 ![Bài tập 02.1](Screenshot_2025-01-07-19-20-16-066_host.exp.exponent.png)
 ![Bài tập 02.2](Screenshot_2025-01-07-18-25-14-075_host.exp.exponent.png)
