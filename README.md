@@ -1,6 +1,11 @@
 # Nguyễn Trọng Thịnh
 ### MSV: 20810310370
 ## Ket qua:
+Bài tập cuối slide buổi 8:
+![Bài tập](buoi8(3).jpg)
+![Bài tập ](buoi8(2).jpg)
+![Bài tập ](buoi8(1).jpg)
+
 Bài tập 04:Validate form
 ![Bài tập 04](z6328896881609_42e6e76ef8204891215ac74f89aca432.jpg)
 ![Bài tập 04](z6328896887153_355b960ad23cca235e17fa66771d6552.jpg)

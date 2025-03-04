@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
 });
 
 export default App;*/
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 
@@ -347,4 +347,24 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default App;*/
+
+
+import React from 'react';
+//import { NavigationContainer } from '@react-navigation/native';
+import { AuthProvider } from './context/AuthProvider';
+import AppNavigator from './AppNavigator';
+
+export default function App() {
+  return (
+    <AuthProvider>
+      
+        <AppNavigator />
+      
+    </AuthProvider>
+  );
+}
+
+
+
+
