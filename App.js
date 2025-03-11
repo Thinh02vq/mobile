@@ -350,7 +350,7 @@ const styles = StyleSheet.create({
 export default App;*/
 
 
-import React from 'react';
+/*import React from 'react';
 //import { NavigationContainer } from '@react-navigation/native';
 import { AuthProvider } from './context/AuthProvider';
 import AppNavigator from './AppNavigator';
@@ -363,7 +363,28 @@ export default function App() {
       
     </AuthProvider>
   );
-}
+}*/
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeScreen from './HomeScreen';
+import ScanScreen from './ScanScreen';
+
+const Stack = createStackNavigator();
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ScanScreen" component={ScanScreen} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
+
 
 
 
