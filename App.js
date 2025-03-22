@@ -363,7 +363,7 @@ export default function App() {
       
     </AuthProvider>
   );
-}*/
+}
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -383,7 +383,95 @@ const App = () => {
   );
 };
 
+export default App;*/
+import React from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome"; // Import icon
+
+const Stack = createStackNavigator();
+
+const Checkout = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Text style={styles.title}>Checkout</Text>
+        <Text style={styles.price}>₹ 1,527</Text>
+        <Text style={styles.subText}>Including GST (18%)</Text>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Card number</Text>
+          <TextInput placeholder="5261 4141 0151 8472" style={styles.input} keyboardType="numeric" />
+        </View>
+
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("PaymentSuccess")}>
+          <Text style={styles.buttonText}>Pay for the order</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const PaymentSuccess = ({ navigation }) => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+          <Icon name="arrow-left" size={20} color="gray" />
+        </TouchableOpacity>
+
+        <Image source={{ uri: "https://cdn-icons-png.flaticon.com/512/190/190411.png" }} style={styles.successIcon} />
+
+        <Text style={styles.title}>Payment Success, Yayy!</Text>
+        <Text style={styles.subText}>
+          We will send order details and invoice to your contact no. and registered email.
+        </Text>
+
+        <TouchableOpacity>
+          <Text style={styles.linkText}>Check Details →</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.button, styles.blueButton]}>
+          <Text style={styles.buttonText}>Download Invoice</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Checkout" component={Checkout} />
+        <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#f3f3f3", justifyContent: "center", alignItems: "center" },
+  card: { backgroundColor: "white", padding: 20, borderRadius: 15, width: 350, alignItems: "center", shadowColor: "#000", shadowOpacity: 0.1, shadowRadius: 5 },
+  title: { fontSize: 18, fontWeight: "bold", marginBottom: 5 },
+  price: { fontSize: 22, fontWeight: "bold", color: "green" },
+  subText: { fontSize: 14, color: "gray", textAlign: "center", marginBottom: 10 },
+  inputContainer: { width: "100%", marginTop: 10 },
+  label: { fontSize: 14, color: "gray" },
+  input: { borderWidth: 1, borderColor: "#ccc", borderRadius: 10, padding: 10, marginTop: 5, width: "100%" },
+  button: { backgroundColor: "green", padding: 12, borderRadius: 10, width: "100%", alignItems: "center", marginTop: 15 },
+  buttonText: { color: "white", fontWeight: "bold", fontSize: 16 },
+  blueButton: { backgroundColor: "blue" },
+  backButton: { position: "absolute", top: 10, left: 10, padding: 10 },
+  successIcon: { width: 80, height: 80, marginBottom: 10 },
+  linkText: { color: "blue", fontWeight: "bold", marginTop: 10 },
+});
+
 export default App;
+
+
+
 
 
 
