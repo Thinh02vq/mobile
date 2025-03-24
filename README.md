@@ -4,7 +4,7 @@
 Bài tập thực hành 24/03:
 ![Bài thực hành](z6437255996861_da6742ae657e209c19549b38b751498a.jpg)
 ![Bài thực hành](z6437256141250_5559f0511fe46a110c96f9955e475679.jpg)
-![Bài thực hành](z6437256149300_80845e8a4794933dd327941c107c1b35.jpg)
+![Bài thực hành](z6437525901182_19b845dd9437e6e3e7c114983bb4201a.jpg)
 ![Bài thực hành](z6437256015084_7f2c807207d5c6a1b79dd45ed1ed6e82.jpg)
 
 Bài tập thực hành22/03:

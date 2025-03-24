@@ -1,72 +1,96 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { Button } from "react-native-paper";
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, ImageBackground } from "react-native";
 
 const SignInScreen = ({ navigation }) => {
   return (
-        <View style={styles.container}>
-            <Image source={require("./assets/food1.png")} style={styles.image} />
-            <Text style={styles.title}>Get your groceries with nectar</Text>
-            
-            <TouchableOpacity
-                style={styles.inputContainer}
-                onPress={() => navigation.navigate("EnterNumber")}
-            >
-                <Text style={styles.inputText}>+880 | Enter your mobile number</Text>
-            </TouchableOpacity>
+    <ImageBackground
+      source={require("./assets/food3.jpg")}
+      style={styles.background}
+      resizeMode="cover"
+    >
+      <View style={styles.overlay}>
+        <Text style={styles.title}>Get your groceries with nectar</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="+880"
+          keyboardType="phone-pad"
 
-            <Text style={styles.orText}>Or connect with social media</Text>
-
-            <Button mode="contained" icon="google" style={styles.button}>
-                Continue with Google
-            </Button>
-            <Button mode="contained" icon="facebook" style={styles.button}>
-                Continue with Facebook
-            </Button>
-        </View>
-
+        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("EnterNumber")}
+        >
+          <Text style={styles.buttonText}>Continue</Text>
+        </TouchableOpacity>
+        <Text style={styles.orText}>Or connect with social media</Text>
+        <TouchableOpacity style={styles.socialButton}>
+          <Text style={styles.socialButtonText}>Continue with Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.socialButton}>
+          <Text style={styles.socialButtonText}>Continue with Facebook</Text>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    padding: 20,
+    width: "100%",
+    height: "60%",
+    justifyContent: "flex-end",
   },
-  image: {
-    width: '110%',
-    height: '60%',
-    resizeMode: "cover",
+  overlay: {
+    backgroundColor: "rgba(255, 255, 255, 0.8)", 
+    padding: 20,
+    alignItems: "",
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     textAlign: "center",
+    marginVertical: 10,
   },
-  inputContainer: {
+  input: {
     width: "100%",
-    padding: 15,
-    borderColor: "#ccc",
     borderWidth: 1,
+    borderColor: "gray",
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 10,
+    backgroundColor: "white",
+  },
+  button: {
+    backgroundColor: "#53B175",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
     borderRadius: 10,
     marginTop: 20,
+    alignItems:"center"
   },
-  inputText: {
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  orText: {
+    marginTop: 20,
     fontSize: 16,
     color: "gray",
   },
-  orText: {
-    marginVertical: 20,
-    fontSize: 14,
-    color: "gray",
-  },
-  button: {
+  socialButton: {
+    backgroundColor: "#E3E3E3",
+    paddingVertical: 12,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    marginTop: 10,
     width: "100%",
-    marginVertical: 5,
-    backgroundColor: "#3b5998",
+    alignItems: "center",
+  },
+  socialButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
