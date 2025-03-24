@@ -383,7 +383,7 @@ const App = () => {
   );
 };
 
-export default App;*/
+export default App;
 import React from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -468,7 +468,30 @@ const styles = StyleSheet.create({
   linkText: { color: "blue", fontWeight: "bold", marginTop: 10 },
 });
 
-export default App;
+export default App;*/
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import SplashScreen from "./SplashScreen";
+import OnboardingScreen from "./OnboardingScreen";
+import SignInScreen from "./SignInScreen";
+import EnterNumberScreen from "./EnterNumberScreen";
+import VerificationScreen from "./VerificationScreen";
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+        <Stack.Screen name="SignIn" component={SignInScreen} />
+        <Stack.Screen name="EnterNumber" component={EnterNumberScreen} />
+        <Stack.Screen name="Verification" component={VerificationScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 
 

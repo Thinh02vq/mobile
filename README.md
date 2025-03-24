@@ -1,6 +1,12 @@
 # Nguyễn Trọng Thịnh
 ### MSV: 20810310370
 ## Ket qua:
+Bài tập thực hành 24/03:
+![Bài thực hành](z6437255996861_da6742ae657e209c19549b38b751498a.jpg)
+![Bài thực hành](z6437256141250_5559f0511fe46a110c96f9955e475679.jpg)
+![Bài thực hành](z6437256149300_80845e8a4794933dd327941c107c1b35.jpg)
+![Bài thực hành](z6437256015084_7f2c807207d5c6a1b79dd45ed1ed6e82.jpg)
+
 Bài tập thực hành22/03:
 ![Bài thực hành](z6431740488217_4db7fd5692877a0b8673c4a196a5391d.jpg)
 ![Bài thực hành](z6431740488674_9c518ed20191583f072953ae0f69cde4.jpg)
