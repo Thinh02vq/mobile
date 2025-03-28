@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
   linkText: { color: "blue", fontWeight: "bold", marginTop: 10 },
 });
 
-export default App;*/
+export default App;
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import SplashScreen from "./SplashScreen";
@@ -491,7 +491,76 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+}*/
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import HomeScreen from "./HomeScreen";
+import ShoppingCartScreen from "./ShoppingCartScreen";
+import ProfileScreen from "./ProfileScreen";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen 
+        name="Home" 
+        component={HomeScreen} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Cart" 
+        component={ShoppingCartScreen} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cart" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Chat" 
+        component={ProfileScreen} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="chatbubble" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Profile" 
+        component={ProfileScreen} 
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="person" size={size} color={color} />
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+};
+
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Main"  screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Main" component={TabNavigator} />
+        <Stack.Screen name="ShoppingCartScreen" component={ShoppingCartScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
+
 
 
 
