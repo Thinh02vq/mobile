@@ -491,7 +491,7 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}*/
+}
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -559,7 +559,221 @@ const App = () => {
   );
 };
 
-export default App;
+export default App;*/
+import React, { useState, useEffect } from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert, Image } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+import LocationScreen from "./LocationScreen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { MaterialIcons } from "@expo/vector-icons";
+
+
+const saveUserData = async (username, email, password) => {
+  try {
+    const userData = { username, email, password };
+    await AsyncStorage.setItem("userData", JSON.stringify(userData));
+    Alert.alert("Success", "User registered successfully!");
+  } catch (error) {
+    console.error("Error saving user data", error);
+  }
+};
+
+const getUserData = async () => {
+  try {
+    const userData = await AsyncStorage.getItem("userData");
+    return userData ? JSON.parse(userData) : null;
+  } catch (error) {
+    console.error("Error retrieving user data", error);
+    return null;
+  }
+};
+
+const PasswordInput = ({ value, onChangeText }) => {
+  const [secureText, setSecureText] = useState(true);
+
+  return (
+    <View style={styles.passwordContainer}>
+      <TextInput
+        style={styles.passwordInput}
+        placeholder="Password"
+        secureTextEntry={secureText}
+        value={value}
+        onChangeText={onChangeText}
+      />
+      <TouchableOpacity onPress={() => setSecureText(!secureText)}>
+        <MaterialIcons name={secureText ? "visibility-off" : "visibility"} size={24} color="gray" />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    const userData = await getUserData();
+    if (userData && userData.email === email && userData.password === password) {
+      Alert.alert("Success", "Login successful!");
+    } else {
+      Alert.alert("Error", "Invalid credentials!");
+    }
+  };
+  return (
+    <View style={styles.container}>
+      <Image source={require("./assets/carrot-icon.png")} style={styles.icon} />
+      <Text style={styles.title}>Loging</Text>
+      <Text style={styles.subtitle}>Enter your emails and password</Text>
+      <Text style={styles.label}>Email</Text>
+      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" value={email} onChangeText={setEmail} />
+      <Text style={styles.label}>Password</Text>
+      <PasswordInput value={password} onChangeText={setPassword} />
+      <Text style={styles.forgotText}>Forgot Password?</Text>
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity>
+      <Text style={styles.terms}>Don’t have an account?<Text style={styles.link} onPress={() => navigation.navigate("SignUp")}>Signup</Text>
+      </Text>
+    </View>
+  );
+};
+
+const SignUpScreen = ({ navigation }) => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignUp = () => {
+    saveUserData(username, email, password);
+    navigation.navigate("Login");
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image source={require("./assets/carrot-icon.png")} style={styles.icon} />
+      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.subtitle}>Enter your credentials to Continue</Text>
+      <Text style={styles.label}>Username</Text>
+      <TextInput style={styles.input} placeholder="Username" value={username} onChangeText={setUsername} />
+      <Text style={styles.label}>Email</Text>
+      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" value={email} onChangeText={setEmail} />
+      <Text style={styles.label}>Password</Text>
+      <PasswordInput value={password} onChangeText={setPassword} />
+      <Text style={styles.terms}>
+        By continuing you agree to our <Text style={styles.link}>Terms of Service</Text> and <Text style={styles.link}>Privacy Policy</Text>.
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+        <Text style={styles.buttonText}>Sign Up</Text>
+      </TouchableOpacity>
+      <Text style={styles.terms}> Already have an account? <Text style={styles.link} onPress={() => navigation.navigate("Login")}> Sign In</Text>
+      </Text>
+    </View>
+  );
+};
+
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="LocationScreen" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="LocationScreen" component={LocationScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10,
+    backgroundColor: "#F5F5F5",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: 'left',
+    alignSelf:'flex-start'
+  },
+  input: {
+    width: "100%",
+    padding: 15,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    marginBottom: 15,
+    backgroundColor: "#fff",
+  },
+  label: {
+    alignSelf: "flex-start",
+    fontSize: 14,
+    fontWeight: "bold",
+    marginBottom: 5,
+  },
+  passwordContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    paddingHorizontal: 10,
+    width: "100%",
+    marginBottom: 15,
+  },
+  passwordInput: {
+    flex: 1,
+    padding: 15,
+  },
+  button: {
+    backgroundColor: "#4CAF50",
+    padding: 15,
+    width: "100%",
+    alignItems: "center",
+    borderRadius: 8,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  link: {
+    marginTop: 15,
+    color: "#4CAF50",
+  },
+  subtitle: {
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 30,
+    textAlign: 'left',
+    alignSelf:'flex-start'
+  },
+  icon: {
+    width: 50, 
+    height: 50,
+    marginBottom: 40,
+  },
+  forgotText: {
+    alignSelf: "flex-end",
+    color: '#000000',
+    marginBottom: 10,
+  },
+  terms: {
+    fontSize: 14,
+    color: "gray",
+    textAlign: "center",
+    marginTop: 20,
+    marginBottom:'20'
+  },
+});
+
+
 
 
 
