@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AuthContext } from "./context/AuthProvider";
 import LoginScreen from "./screens/LoginScreen";
-import ExplorerScreen from "./screens/ExplorerScreen";
+import ExplorerScreen from "./screens/SearchScreen";
 import AccountScreen from "./screens/AccountScreen";
 
 const Stack = createStackNavigator();
